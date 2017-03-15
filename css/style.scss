@@ -1,0 +1,63 @@
+@mixin efectoEncabezado($grados,$color:'rgba(0,0,0,1)') {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background-color: unquote($color);
+  -webkit-transform: skew(0deg,unquote($grados+'deg'));
+  -moz-transform: skew(0deg,unquote($grados+'deg'));
+  -ms-transform: skew(0deg,unquote($grados+'deg'));
+  transform: skew(0deg,unquote($grados+'deg'));
+
+}
+html, body{
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+header{
+  position: fixed;
+  width: 100%;
+  top: -9em;
+  &::before{
+    @include efectoEncabezado(5);
+    left: 0;
+  }
+  &::after{
+    @include efectoEncabezado(-5);
+    right: 0;
+  }
+  nav {
+    ul{
+    margin: 0;
+    list-style: none;
+      li{
+        display: inline-block;
+        a{
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+  #logo{
+    background-color: #000;
+    position: relative;
+    width: 15%;
+    height: 100px;
+    text-align: center;
+    min-width: 10px;
+    max-width: 100%;
+    left: 43%;
+    top: 140px;
+    z-index: 5px;
+    border-radius: 5em 0em;
+    img{
+      margin-top: -20px;
+      width: 100px;
+    }
+  }
+}
