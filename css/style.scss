@@ -1,3 +1,12 @@
+@each $font-face in 'Bebas-Neue','Socialico'{
+  @font-face {
+    font-family:$font-face;
+    font-style: normal;
+    font-weight: normal;
+    src:url(../font/#{$font-face}.eot);
+    src:url(../font/#{$font-face}.otf),url(../font/#{$font-face}.ttf);
+  }
+}
 @mixin efectoEncabezado($grados,$color:'rgba(0,0,0,1)') {
   position: absolute;
   content: "";
@@ -18,10 +27,27 @@ html, body{
   margin: 0;
   max-width: 100%;
 }
+.callig{
+  font-family: 'Calligraffitti', cursive;
+
+}
+.fullscreen{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+}
+
 header{
   position: fixed;
   width: 100%;
   top: -9em;
+  text-align: center;
+  transition: all 0.4s;
+  &:hover{
+    top: -7em;
+  }
   &::before{
     @include efectoEncabezado(5);
     left: 0;
@@ -34,8 +60,11 @@ header{
     ul{
     margin: 0;
     list-style: none;
+    font-weight: bold;
+    padding-bottom: 1em;
       li{
         display: inline-block;
+        padding: 0 10px;
         a{
           text-decoration: none;
           color: #fff;
@@ -44,7 +73,7 @@ header{
     }
   }
   #logo{
-    background-color: #000;
+    background-color: #000000;
     position: relative;
     width: 15%;
     height: 100px;
@@ -58,6 +87,27 @@ header{
     img{
       margin-top: -20px;
       width: 100px;
+    }
+  }
+}
+
+.slider_container{
+  position: fixed;
+  overflow: hidden;
+  top: 0px;
+  left: 0;
+  z-index: -2;
+  background-color: #000;
+  .slideContainer{
+    white-space: nowrap;
+    height:100%;
+    .slide{
+      display: inline-block;
+      background-color: white;
+      margin-right: -4px;
+      vertical-align: top;
+      background-size: 100%;
+      background-position:bottom;
     }
   }
 }
