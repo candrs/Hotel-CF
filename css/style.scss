@@ -64,7 +64,12 @@ html, body{
   height: 100%;
   overflow: hidden;
   img{
+    -webkit-filter: grayscale(1) blur(2px);
+    transition: all 0.3s;
     width: 100%;
+    &:hover{
+      -webkit-filter: grayscale(0.2) blur(0px);
+    }
   }
 }
 
